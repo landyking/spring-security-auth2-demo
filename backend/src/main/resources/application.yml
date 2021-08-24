@@ -1,8 +1,11 @@
-server.port: 17880
+spring.application.name: backend
+server.port: 17881
 logging.level.ROOT: INFO
+#logging.level.org.springframework.security: DEBUG
+logging.level.org.springframework.web.client: DEBUG
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+          jwk-set-uri: http://localhost:17888/.well-known/jwks.json
