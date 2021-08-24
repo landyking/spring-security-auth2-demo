@@ -2,9 +2,13 @@ spring.application.name: frontend
 server.port: 17880
 logging.level.ROOT: INFO
 logging.level.org.springframework.web.client: DEBUG
+
 spring:
   security:
     oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://AUTHORIZATION-SERVER/.well-known/jwks.json
       client:
         registration:
           my-client-credentials:
@@ -16,5 +20,4 @@ spring:
             client-name: messaging-client-client-credentials
         provider:
           spring:
-            jwk-set-uri: http://localhost:17888/.well-known/jwks.json
-            token-uri: http://localhost:17888/oauth/token
+            token-uri: http://AUTHORIZATION-SERVER/oauth/token
